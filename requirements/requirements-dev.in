@@ -1,0 +1,4 @@
+# requirements-dev.in
+-c requirements.txt
+conventional-pre-commit
+pre-commit
