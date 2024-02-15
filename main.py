@@ -32,7 +32,7 @@ def get_random_fact(n: int):
     endpoint = f"facts/fact_to_number?n={n}"
     try:
         data = fetch_data(endpoint)
-        typer.echo(data)
+        typer.echo(data['value'])
     except requests.RequestException as e:
         typer.echo(f"Error fetching data: {e}")
 
@@ -49,7 +49,7 @@ def translate_to_czech(word: str):
     endpoint = f"translate/translate?text={word}"
     try:
         data = fetch_data(endpoint)
-        typer.echo(data)
+        typer.echo(data['value'])
     except requests.RequestException as e:
         typer.echo(f"Error fetching data: {e}")
 
