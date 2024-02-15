@@ -3,15 +3,19 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
+name = "insight-client"
 requires-python = ">=3.11"
-description = "CLI for insight-ai-api"
-name = "cli"
 authors = [
   { name = "John Dutchover", email = "1983909-johndutchover@users.noreply.gitlab.com" },
 ]
+description = "CLI for insight-ai-api"
+readme = "README.md"
 
 dynamic = ["version"]
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements/requirements.in"] }
 optional-dependencies.test = { file = ["requirements/requirements-test.txt"] }
+
+[tool.pip-compile]
+generate-hashes = true
