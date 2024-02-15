@@ -38,7 +38,7 @@ def get_random_fact(n: int):
 
 
 @app.command()
-def translate_to_german(word: str):
+def translate_to_czech(word: str):
     """
     Fetch data from the insight-ai-api endpoint.
 
