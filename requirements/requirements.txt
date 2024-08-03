@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=requirements/requirements.txt requirements/requirements.in
 #
-certifi==2024.2.2
+certifi==2024.7.4
     # via requests
 charset-normalizer==3.3.2
     # via requests
@@ -13,9 +13,9 @@ click==8.1.7
 idna==3.6
     # via requests
 requests==2.31.0
-    # via -r requirements/requirements.in
+    # via -r requirements.in
 typer==0.9.0
-    # via -r requirements/requirements.in
+    # via -r requirements.in
 typing-extensions==4.9.0
     # via typer
 urllib3==2.2.0
