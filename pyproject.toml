@@ -4,18 +4,54 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "insight-client"
+version = "0.2.0"
 requires-python = ">=3.11"
 authors = [
-  { name = "John Dutchover", email = "1983909-johndutchover@users.noreply.gitlab.com" },
+  { name = "John Dutchover", email = "johndutchover@users.noreply.github.com" },
 ]
 description = "CLI for insight-ai-api"
 readme = "README.md"
 
 dynamic = ["version"]
 
-[tool.setuptools.dynamic]
-dependencies = { file = ["requirements/requirements.in"] }
-optional-dependencies.test = { file = ["requirements/requirements-test.txt"] }
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
 
-[tool.pip-compile]
-generate-hashes = true
+[tool.pixi.dependencies]
+typer = ">=0.15.1,<0.16"
+requests = ">=2.32.3,<3"
+
+[tool.pixi.feature.test.dependencies]
+black = "*"
+flake8 = "*"
+mock = "*"
+pytest = "*"
+pytest-cov = "*"
+
+[tool.pixi.feature.dev.dependencies]
+pre-commit = "*"
+
+[tool.pixi.environments]
+dev = ["dev"]
+test = ["test"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311', 'py312', 'py313', 'py314']
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
